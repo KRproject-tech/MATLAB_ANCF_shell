@@ -2,7 +2,7 @@
 ![free_falling](https://github.com/KRproject-tech/MATLAB_ANCF_shell/assets/114337358/b55e0a22-58c3-46ff-848a-fb968a01c096)
 
 # MATLAB_ANCF_shell
-Nonlinear shell dynamics analysis based on FEM shell element with Absolute Nodal Coordinate. Formulation (ANCF). 
+Nonlinear shell dynamics analysis based on FEM shell element with Absolute Nodal Coordinate Formulation (ANCF) [^1]. 
 
 **Communication**
 
@@ -58,3 +58,11 @@ Push the “plot” button.
 __[Step 5] View plotted results__
 
 Results (figures and movie) plotted by [Step 4] are in "./save" directory.
+
+### References  
+
+[^1]: J. Katz and A. Plotkin, Low-Speed Aerodynamics, (Cambridge University Press, New York, 2001).
+
+
+
+
