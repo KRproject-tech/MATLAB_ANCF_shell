@@ -1,0 +1,85 @@
+%% 剛性行列の組立
+
+
+
+%% [0] 垂直ひずみ (Qeε = t∫_A (∂q_ε)^t*Dm*ε dA ∈ R^36)
+
+Qe_eps_vec_i = zeros(N_q,1,N_element);
+
+%%[0-2] Gauss-Legendre求積の重みを行列化：1:1~N_q, 2:1~N_q, 3:ξの積分分点, 4:ηの積分分点, 5:∂qκを差分計算する時の成分番号
+ww_mat = repmat( permute( w_vec.'*w_vec, [ 3 4 1 2]), [ N_q 1 1 1]);
+
+%%[1-2] 剛性をGauss-Legendre求積の積分分点だけコピー：1:1~N_q, 2:1~N_q, 3:ξの積分分点, 4:ηの積分分点, 5:∂qκを差分計算する時の成分番号
+Dm_mat2 = repmat( Dm_mat, [ 1 1 length( p_vec) length( p_vec)]);
+
+for ii = 1:N_element
+    
+    dL = dL_vec(ii);                        %% ii要素の長さ [m]
+    dW = dW_vec(ii);                        %% ii要素の幅 [m]
+    
+    
+    %% 1ノード当たり9成分 ( q_i = [ rx_i ry_i rz_i : dx_rx_i dx_ry_i dx_rz_i : dy_rx_i dy_ry_i dy_rz_i]^T ∈ R^9 )
+    %% 1要素当たり36成分　( q := [ q_i1^T q_i2^T q_i3^T q_i4^T]^T ∈ R^36 )
+    i_vec = repmat( ( N_qi*(nodes(ii,:) - 1)+1 ).', [ 1 N_qi]) + repmat( 0:N_qi-1, [ length( nodes(ii,:)) 1]);
+    i_vec = reshape(i_vec.',1,[]);
+    q_i_vec = q_vec(i_vec);
+    
+    dx_n_sc_struct = dx_n_Sc_struct(ii);       
+    
+    
+    dq_eps_Dm_eps_vec = dq_eps_Dm_eps( q_i_vec, Dm_mat2, dx_n_sc_struct, p_vec);
+    int_dq_e_Dm_e = dL*dW/4*ww_mat.*dq_eps_Dm_eps_vec;
+    int_dq_e_Dm_e = sum( sum( int_dq_e_Dm_e, 4), 3).';
+
+    Qe_eps_vec_i(:,1,ii) = thick*int_dq_e_Dm_e;        %% ii要素の外力行列
+end
+
+
+%% [1] 曲げひずみ (Qeε = ∫_A (∂q_κ)^t*Dκ*κ dA ∈ R^36)
+
+Qe_k_vec_i = zeros(N_q,1,N_element);
+
+%%[1-1] ∂qκを差分計算するときの微小量：1:1~N_q, 2:1~N_q, 3:ξの積分分点, 4:ηの積分分点, 5:∂qκを差分計算する時の成分番号
+eye_N_q = repmat( eye(N_q), [ 1 1 length( p_vec)  length( p_vec)]);
+d_q = 1e-10;
+dq_vec = d_q*eye_N_q;
+dq_vec = permute( dq_vec, [ 5 1 3 4 2]);
+dq_vec = reshape( dq_vec, 3, [], length( p_vec), length( p_vec), N_q);	 %% 形状関数の行数に合わせる(積の計算のため)．1方向:座標成分(x,y,z)に対応，2:方向(r,dx_r,dy_r)に対応，3,4方向:ガウス求積点，5方向:∂qκを差分計算する時の成分番号
+
+
+%%[1-2] 剛性をGauss-Legendre求積の積分分点だけコピー：1:1~N_q, 2:1~N_q, 3:ξの積分分点, 4:ηの積分分点, 5:∂qκを差分計算する時の成分番号
+Dk_mat2 = repmat( Dk_mat, [ 1 1 length( p_vec) length( p_vec)]);
+
+for ii = 1:N_element
+    
+    dL = dL_vec(ii);                %% ii要素の長さ [m]
+    dW = dW_vec(ii);                %% ii要素の幅 [m]
+    
+    %% 1ノード当たり9成分 ( q_i = [ rx_i ry_i rz_i : dx_rx_i dx_ry_i dx_rz_i : dy_rx_i dy_ry_i dy_rz_i]^T ∈ R^9 )
+    %% 1要素当たり36成分　( q := [ q_i1^T q_i2^T q_i3^T q_i4^T]^T ∈ R^36 )
+    i_vec = repmat( ( N_qi*(nodes(ii,:) - 1)+1 ).', [ 1 N_qi]) + repmat( 0:N_qi-1, [ length( nodes(ii,:)) 1]);
+    i_vec = reshape(i_vec.',1,[]);
+    q_i_vec = q_vec(i_vec);    
+    
+    dx_n_sc_struct = dx_n_Sc_struct(ii);            
+
+    dq_k_Dk_k_vec = dq_k_Dk_k( q_i_vec, Dk_mat2, dx_n_sc_struct, dq_vec, p_vec);
+    int_dq_k_Dk_k = dL*dW/4*ww_mat.*dq_k_Dk_k_vec;
+    int_dq_k_Dk_k = sum( sum( int_dq_k_Dk_k, 4), 3).';
+    
+    Qe_k_vec_i(:,1,ii) = int_dq_k_Dk_k;        %% ii要素の外力行列
+end
+
+
+%% [2] グローバル行列組立
+
+Qe_global = zeros(N_q_all,1);
+for ii = 1:N_element
+
+    %% 1ノード当たり9成分 ( q_i = [ rx_i ry_i rz_i : dx_rx_i dx_ry_i dx_rz_i : dy_rx_i dy_ry_i dy_rz_i]^T ∈ R^9 )
+    %% 1要素当たり36成分　( q := [ q_i1^T q_i2^T q_i3^T q_i4^T]^T ∈ R^36 )
+    i_vec = repmat( ( N_qi*(nodes(ii,:) - 1)+1 ).', [ 1 N_qi]) + repmat( 0:N_qi-1, [ length( nodes(ii,:)) 1]);
+    i_vec = reshape(i_vec.',1,[]);    
+
+    Qe_global(i_vec,1) = Qe_global(i_vec,1) + squeeze( Qe_eps_vec_i(:,:,ii) +  Qe_k_vec_i(:,:,ii));
+end

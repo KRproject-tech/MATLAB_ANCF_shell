@@ -1,0 +1,134 @@
+%% å`èÛä÷êî [-]
+
+%% [0] S(x,y)
+Sc1 = @( xi, eta, dL, dW)( -(xi - 1).*(eta - 1).*(2*eta.^2 - eta + 2*xi.^2 - xi -1) );     
+Sc2 = @( xi, eta, dL, dW)( -dL*xi.*(xi - 1).^2.*(eta - 1) );     
+Sc3 = @( xi, eta, dL, dW)( -dW*eta.*(eta - 1).^2.*(xi - 1) );
+Sc4 = @( xi, eta, dL, dW)( xi.*(2*eta.^2 - eta - 3*xi + 2*xi.^2).*(eta - 1) );     
+Sc5 = @( xi, eta, dL, dW)( -dL.*xi.^2.*(xi - 1).*(eta - 1) );     
+Sc6 = @( xi, eta, dL, dW)( dW.*xi.*eta.*(eta - 1).^2 );     
+Sc7 = @( xi, eta, dL, dW)( -xi.*eta.*(1 - 3*xi - 3*eta + 2*eta.^2 + 2*xi.^2) );     
+Sc8 = @( xi, eta, dL, dW)( dL*xi.^2.*eta.*(xi - 1) );     
+Sc9 = @( xi, eta, dL, dW)( dW*xi.*eta.^2.*(eta - 1) );
+Sc10 = @( xi, eta, dL, dW)( eta.*(xi - 1).*(2*xi.^2 - xi - 3*eta + 2*eta.^2) );     
+Sc11 = @( xi, eta, dL, dW)( dL*xi.*eta.*(xi - 1).^2 );   
+Sc12 = @( xi, eta, dL, dW)( -dW*eta.^2.*(xi - 1).*(eta - 1) );     
+
+
+Sc_xi_eta = @( xi, eta, dL, dW)( [  Sc1( xi, eta, dL, dW)   Sc2( xi, eta, dL, dW)   Sc3( xi, eta, dL, dW)...
+                                    Sc4( xi, eta, dL, dW)   Sc5( xi, eta, dL, dW)   Sc6( xi, eta, dL, dW)...
+                                    Sc7( xi, eta, dL, dW)   Sc8( xi, eta, dL, dW)   Sc9( xi, eta, dL, dW)...
+                                    Sc10( xi, eta, dL, dW)  Sc11( xi, eta, dL, dW)  Sc12( xi, eta, dL, dW)] );
+Sc_mat = @( x, y, dL, dW)( kron( Sc_xi_eta( x/dL, y/dW, dL, dW), eye(3)) );
+
+
+
+%% [1] dx_S(x,y)
+dxi_Sc1 = @( xi, eta, dL, dW)( -(eta - 1).*(2*eta.^2 - eta + 2*xi.^2 - xi -1) - (xi - 1).*(eta - 1).*(4*xi - 1) );     
+dxi_Sc2 = @( xi, eta, dL, dW)( -dL*(xi - 1).^2.*(eta - 1) - dL*xi.*2*(xi - 1).*(eta - 1) );     
+dxi_Sc3 = @( xi, eta, dL, dW)( -dW*eta.*(eta - 1).^2 );
+dxi_Sc4 = @( xi, eta, dL, dW)( (2*eta.^2 - eta - 3*xi + 2*xi.^2).*(eta - 1) + xi.*(-3 + 4*xi).*(eta - 1) );     
+dxi_Sc5 = @( xi, eta, dL, dW)( -dL.*2*xi.*(xi - 1).*(eta - 1) - dL.*xi.^2.*(eta - 1) );     
+dxi_Sc6 = @( xi, eta, dL, dW)( dW.*eta.*(eta - 1).^2 );    
+dxi_Sc7 = @( xi, eta, dL, dW)( -eta.*(1 - 3*xi - 3*eta + 2*eta.^2 + 2*xi.^2) - xi.*eta.*(-3 + 4*xi) );     
+dxi_Sc8 = @( xi, eta, dL, dW)( dL*2*xi.*eta.*(xi - 1) + dL*xi.^2.*eta );     
+dxi_Sc9 = @( xi, eta, dL, dW)( dW*eta.^2.*(eta - 1) );
+dxi_Sc10 = @( xi, eta, dL, dW)( eta.*(2*xi.^2 - xi - 3*eta + 2*eta.^2) + eta.*(xi - 1).*(4*xi - 1) );     
+dxi_Sc11 = @( xi, eta, dL, dW)( dL*eta.*(xi - 1).^2 + dL*xi.*eta.*2*(xi - 1) );   
+dxi_Sc12 = @( xi, eta, dL, dW)( -dW*eta.^2.*(eta - 1) );  
+
+dxi_Sc_xi_eta = @( xi, eta, dL, dW)( [  dxi_Sc1( xi, eta, dL, dW)   dxi_Sc2( xi, eta, dL, dW)   dxi_Sc3( xi, eta, dL, dW)...
+                                        dxi_Sc4( xi, eta, dL, dW)   dxi_Sc5( xi, eta, dL, dW)   dxi_Sc6( xi, eta, dL, dW)...
+                                        dxi_Sc7( xi, eta, dL, dW)   dxi_Sc8( xi, eta, dL, dW)   dxi_Sc9( xi, eta, dL, dW)...
+                                        dxi_Sc10( xi, eta, dL, dW)  dxi_Sc11( xi, eta, dL, dW)  dxi_Sc12( xi, eta, dL, dW)] );
+dx_Sc_mat = @( x, y, dL, dW)( kron( dxi_Sc_xi_eta( x/dL, y/dW, dL, dW), eye(3))/dL );
+
+
+
+%% [2] dy_S(x,y)
+deta_Sc1 = @( xi, eta, dL, dW)( -(xi - 1).*(2*eta.^2 - eta + 2*xi.^2 - xi -1) - (xi - 1).*(eta - 1).*(4*eta - 1) );     
+deta_Sc2 = @( xi, eta, dL, dW)( -dL*xi.*(xi - 1).^2 );     
+deta_Sc3 = @( xi, eta, dL, dW)( -dW.*(eta - 1).^2.*(xi - 1) - dW*eta.*2*(eta - 1).*(xi - 1) );
+deta_Sc4 = @( xi, eta, dL, dW)( xi.*(4*eta - 1).*(eta - 1) +  xi.*(2*eta.^2 - eta - 3*xi + 2*xi.^2) );     
+deta_Sc5 = @( xi, eta, dL, dW)( -dL.*xi.^2.*(xi - 1) );     
+deta_Sc6 = @( xi, eta, dL, dW)( dW.*xi.*(eta - 1).^2 + dW.*xi.*eta.*2*(eta - 1) );     
+deta_Sc7 = @( xi, eta, dL, dW)( -xi.*(1 - 3*xi - 3*eta + 2*eta.^2 + 2*xi.^2) - xi.*eta.*(-3 + 4*eta) );     
+deta_Sc8 = @( xi, eta, dL, dW)( dL*xi.^2.*(xi - 1) );     
+deta_Sc9 = @( xi, eta, dL, dW)( dW*xi.*2*eta.*(eta - 1) + dW*xi.*eta.^2. );
+deta_Sc10 = @( xi, eta, dL, dW)( (xi - 1).*(2*xi.^2 - xi - 3*eta + 2*eta.^2) + eta.*(xi - 1).*(-3 + 4*eta) );     
+deta_Sc11 = @( xi, eta, dL, dW)( dL*xi.*(xi - 1).^2 );   
+deta_Sc12 = @( xi, eta, dL, dW)( -dW*2*eta.*(xi - 1).*(eta - 1) - dW*eta.^2.*(xi - 1) ); 
+
+
+deta_Sc_xi_eta = @( xi, eta, dL, dW)( [	deta_Sc1( xi, eta, dL, dW)   deta_Sc2( xi, eta, dL, dW)   deta_Sc3( xi, eta, dL, dW)...
+                                        deta_Sc4( xi, eta, dL, dW)   deta_Sc5( xi, eta, dL, dW)   deta_Sc6( xi, eta, dL, dW)...
+                                        deta_Sc7( xi, eta, dL, dW)   deta_Sc8( xi, eta, dL, dW)   deta_Sc9( xi, eta, dL, dW)...
+                                        deta_Sc10( xi, eta, dL, dW)  deta_Sc11( xi, eta, dL, dW)  deta_Sc12( xi, eta, dL, dW)] );
+dy_Sc_mat = @( x, y, dL, dW)( kron( deta_Sc_xi_eta( x/dL, y/dW, dL, dW), eye(3))/dW );
+
+
+
+%% [3] dx^2_S(x,y)
+dxi2_Sc1 = @( xi, eta, dL, dW)( -(eta - 1).*(4*xi - 1) - (eta - 1).*(4*xi - 1) - (xi - 1).*(eta - 1)*4 );     
+dxi2_Sc2 = @( xi, eta, dL, dW)( -dL*2*(xi - 1).*(eta - 1) - dL*2*(xi - 1).*(eta - 1) - dL*xi.*2*(eta - 1) );     
+dxi2_Sc3 = @( xi, eta, dL, dW)( 0 );
+dxi2_Sc4 = @( xi, eta, dL, dW)( ( -3 + 4*xi).*(eta - 1) + (-3 + 4*xi).*(eta - 1) + xi.*4*(eta - 1) );     
+dxi2_Sc5 = @( xi, eta, dL, dW)( -dL.*2*(xi - 1).*(eta - 1) - dL.*2*xi.*(eta - 1) - dL.*2*xi.*(eta - 1) );     
+dxi2_Sc6 = @( xi, eta, dL, dW)( 0 );    
+dxi2_Sc7 = @( xi, eta, dL, dW)( -eta.*(-3 + 4*xi) - eta.*(-3 + 4*xi) - xi.*eta*4 );     
+dxi2_Sc8 = @( xi, eta, dL, dW)( dL*2*eta.*(xi - 1) + dL*2*xi.*eta + dL*2*xi.*eta );     
+dxi2_Sc9 = @( xi, eta, dL, dW)( 0 );
+dxi2_Sc10 = @( xi, eta, dL, dW)( eta.*(4*xi - 1) + eta.*(4*xi - 1) + eta.*(xi - 1)*4 );     
+dxi2_Sc11 = @( xi, eta, dL, dW)( dL*eta.*2*(xi - 1) + dL*eta.*2*(xi - 1) + dL*xi.*eta.*2 );   
+dxi2_Sc12 = @( xi, eta, dL, dW)( 0 );  
+
+dxi2_Sc_xi_eta = @( xi, eta, dL, dW)( [	dxi2_Sc1( xi, eta, dL, dW)   dxi2_Sc2( xi, eta, dL, dW)   dxi2_Sc3( xi, eta, dL, dW)...
+                                     	dxi2_Sc4( xi, eta, dL, dW)   dxi2_Sc5( xi, eta, dL, dW)   dxi2_Sc6( xi, eta, dL, dW)...
+                                        dxi2_Sc7( xi, eta, dL, dW)   dxi2_Sc8( xi, eta, dL, dW)   dxi2_Sc9( xi, eta, dL, dW)...
+                                        dxi2_Sc10( xi, eta, dL, dW)  dxi2_Sc11( xi, eta, dL, dW)  dxi2_Sc12( xi, eta, dL, dW)] );
+dx2_Sc_mat = @( x, y, dL, dW)( kron( dxi2_Sc_xi_eta( x/dL, y/dW, dL, dW), eye(3))/dL^2 );
+
+
+
+%% [4] dy^2_S(x,y)
+deta2_Sc1 = @( xi, eta, dL, dW)( -(xi - 1).*(4*eta - 1) - (xi - 1).*(4*eta - 1) - (xi - 1).*(eta - 1)*4 );     
+deta2_Sc2 = @( xi, eta, dL, dW)( 0 );     
+deta2_Sc3 = @( xi, eta, dL, dW)( -dW.*2*(eta - 1).*(xi - 1) - dW*2*(eta - 1).*(xi - 1) - dW*eta.*2*(xi - 1) );
+deta2_Sc4 = @( xi, eta, dL, dW)( xi.*4*(eta - 1) + xi.*(4*eta - 1) +  xi.*(4*eta - 1) );     
+deta2_Sc5 = @( xi, eta, dL, dW)( 0 );     
+deta2_Sc6 = @( xi, eta, dL, dW)( dW.*xi.*2*(eta - 1) + dW.*xi.*2*(eta - 1) + dW.*xi.*eta*2 );     
+deta2_Sc7 = @( xi, eta, dL, dW)( -xi.*(-3 + 4*eta) - xi.*(-3 + 4*eta) - xi.*eta*4 );     
+deta2_Sc8 = @( xi, eta, dL, dW)( 0 );     
+deta2_Sc9 = @( xi, eta, dL, dW)( dW*xi.*2*(eta - 1) + dW*xi.*2*eta + dW*xi.*2*eta );
+deta2_Sc10 = @( xi, eta, dL, dW)( (xi - 1).*(-3 + 4*eta) + (xi - 1).*(-3 + 4*eta) + eta.*(xi - 1)*4 );     
+deta2_Sc11 = @( xi, eta, dL, dW)( 0 );   
+deta2_Sc12 = @( xi, eta, dL, dW)( -dW*2*(xi - 1).*(eta - 1) - dW*2*eta.*(xi - 1) - dW*2*eta.*(xi - 1) ); 
+
+
+deta2_Sc_xi_eta = @( xi, eta, dL, dW)( [	deta2_Sc1( xi, eta, dL, dW)   deta2_Sc2( xi, eta, dL, dW)   deta2_Sc3( xi, eta, dL, dW)...
+                                            deta2_Sc4( xi, eta, dL, dW)   deta2_Sc5( xi, eta, dL, dW)   deta2_Sc6( xi, eta, dL, dW)...
+                                            deta2_Sc7( xi, eta, dL, dW)   deta2_Sc8( xi, eta, dL, dW)   deta2_Sc9( xi, eta, dL, dW)...
+                                            deta2_Sc10( xi, eta, dL, dW)  deta2_Sc11( xi, eta, dL, dW)  deta2_Sc12( xi, eta, dL, dW)] );
+dy2_Sc_mat = @( x, y, dL, dW)( kron( deta2_Sc_xi_eta( x/dL, y/dW, dL, dW), eye(3))/dW^2 );
+
+
+
+%% [5] dxy_S(x,y)
+dxieta_Sc1 = @( xi, eta, dL, dW)( -(2*eta.^2 - eta + 2*xi.^2 - xi -1) -(eta - 1).*(4*eta - 1) - (xi - 1).*(4*xi - 1) );     
+dxieta_Sc2 = @( xi, eta, dL, dW)( -dL*(xi - 1).^2 - dL*xi.*2*(xi - 1) );     
+dxieta_Sc3 = @( xi, eta, dL, dW)( -dW*(eta - 1).^2 - dW*eta.*2*(eta - 1) );
+dxieta_Sc4 = @( xi, eta, dL, dW)( (4*eta - 1).*(eta - 1) + (2*eta.^2 - eta - 3*xi + 2*xi.^2) + xi.*(-3 + 4*xi) );     
+dxieta_Sc5 = @( xi, eta, dL, dW)( -dL.*2*xi.*(xi - 1) - dL.*xi.^2 );     
+dxieta_Sc6 = @( xi, eta, dL, dW)( dW.*(eta - 1).^2 + dW.*eta.*2*(eta - 1) );    
+dxieta_Sc7 = @( xi, eta, dL, dW)( -(1 - 3*xi - 3*eta + 2*eta.^2 + 2*xi.^2) - eta.*(-3 + 4*eta) - xi.*(-3 + 4*xi) );     
+dxieta_Sc8 = @( xi, eta, dL, dW)( dL*2*xi.*(xi - 1) + dL*xi.^2 );     
+dxieta_Sc9 = @( xi, eta, dL, dW)( dW*2*eta.*(eta - 1) + dW*eta.^2 );
+dxieta_Sc10 = @( xi, eta, dL, dW)( (2*xi.^2 - xi - 3*eta + 2*eta.^2) + eta.*(-3 + 4*eta) + (xi - 1).*(4*xi - 1) );     
+dxieta_Sc11 = @( xi, eta, dL, dW)( dL*(xi - 1).^2 + dL*xi.*2*(xi - 1) );   
+dxieta_Sc12 = @( xi, eta, dL, dW)( -dW*2*eta.*(eta - 1) - dW*eta.^2 );  
+
+dxieta_Sc_xi_eta = @( xi, eta, dL, dW)( [	dxieta_Sc1( xi, eta, dL, dW)   dxieta_Sc2( xi, eta, dL, dW)   dxieta_Sc3( xi, eta, dL, dW)...
+                                            dxieta_Sc4( xi, eta, dL, dW)   dxieta_Sc5( xi, eta, dL, dW)   dxieta_Sc6( xi, eta, dL, dW)...
+                                            dxieta_Sc7( xi, eta, dL, dW)   dxieta_Sc8( xi, eta, dL, dW)   dxieta_Sc9( xi, eta, dL, dW)...
+                                            dxieta_Sc10( xi, eta, dL, dW)  dxieta_Sc11( xi, eta, dL, dW)  dxieta_Sc12( xi, eta, dL, dW)] );
+dxy_Sc_mat = @( x, y, dL, dW)( kron( dxieta_Sc_xi_eta( x/dL, y/dW, dL, dW), eye(3))/(dL*dW) );
