@@ -1,5 +1,6 @@
 
-![free_falling](https://github.com/KRproject-tech/MATLAB_ANCF_shell/assets/114337358/b55e0a22-58c3-46ff-848a-fb968a01c096)
+![図1](https://github.com/KRproject-tech/MATLAB_ANCF_shell/assets/114337358/e5dbcfc7-b599-4b77-b23e-5d20768e6cac)
+
 
 # MATLAB_ANCF_shell
 Nonlinear shell dynamics analysis based on FEM shell element with Absolute Nodal Coordinate Formulation (ANCF) [^1]. 
