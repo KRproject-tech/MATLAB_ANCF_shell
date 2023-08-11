@@ -19,16 +19,10 @@ __[Step 1] Install the ToolBoxes__
 
 The following ToolBoxes in “./XXXX/ToolBoxes/” ("XXXX" is "double_sheets" and "single_sheet") are required,
 
-__For numerical analysis:__
-
-*	__“Vectorized Multi-Dimensional Matrix Multiplication”__ by Darin Koblick:  
-https://jp.mathworks.com/matlabcentral/fileexchange/47092-vectorized-multi-dimensional-matrix-multiplication?s_tid=prof_contriblnk
-
 __For plotting results:__
 
-*	__“mmwrite”__ by Micah Richert:  
-https://jp.mathworks.com/matlabcentral/fileexchange/15881-mmwrite
-
+*	__“mpgwrite”__ by  David Foti:  
+https://jp.mathworks.com/matlabcentral/fileexchange/309-mpgwrite?s_tid=srchtitle
 
 
 
@@ -36,6 +30,6 @@ __[Step 1.2] Add path to installed ToolBoxes__
 
 Modify "add_pathes.m" to add path to abovementined installed ToolBoxes as follows,
 ````
-addpath ./ToolBoxes/XX;
+addpath ./cores/ToolBoxes/XX;
 ````
 where `XX` is the name of folder of the installed ToolBox.
