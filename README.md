@@ -61,7 +61,7 @@ Results (figures and movie) plotted by [Step 4] are in "./save" directory.
 
 ### References  
 
-[^1]: J. Katz and A. Plotkin, Low-Speed Aerodynamics, (Cambridge University Press, New York, 2001).
+[^1]: A. Shabana, Computational Continuum Mechanics, Chap. 6 (Cambridge University Press, 2008), pp. 231–285.
 
 
 
