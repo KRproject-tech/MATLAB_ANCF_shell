@@ -18,6 +18,20 @@ Nonlinear shell dynamics analysis based on FEM shell element with Absolute Nodal
 <p>
 
 
+## Directory    
+<pre>
+└─Plate_FEM_explicit_3_SURFplot
+    ├─cores
+    │  ├─functions
+    │  ├─solver
+    │  └─ToolBoxes
+    │      ├─mntimes
+    │      └─Plate_Mesh
+    └─save
+        └─fig
+</pre>
+
+
 ## Preparation before analysis
 __[Step 1] Install the ToolBoxes__
 
