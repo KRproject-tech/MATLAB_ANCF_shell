@@ -76,11 +76,13 @@ Results (figures and movie) plotted by [Step 4] are in "./save" directory.
 
 
 ## Gallery
-
+![reduced_model](https://github.com/KRproject-tech/MATLAB_ANCF_shell/assets/114337358/19748cd5-2599-4f59-bd4f-e2a617b6b95a)
+Deformed shape of the pendulum (Model I) [^2]
 
 ### References  
 
 [^1]: A. Shabana, Computational Continuum Mechanics, Chap. 6 (Cambridge University Press, 2008), pp. 231–285.
+[^2]: K. Dufva and A. Shabana, Analysis of thin plate structures using the absolute nodal coordinate formulation, Proc. IMechE Vol. 219 Part K: J. Multi-body Dynamics, 2005.
 
 
 
