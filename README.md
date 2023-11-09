@@ -77,7 +77,12 @@ Results (figures and movie) plotted by [Step 4] are in "./save" directory.
 
 ## Gallery
 
-* Young's modulus: $E = 1.0 \times 10^5 \: \rm{Pa}$ 
+* Young's modulus: $1.0 \times 10^5 \ \rm{Pa}$
+* density: $7810 \ \rm{kg/m^3}$
+* Poisson ratio: $0.3$
+* Length, width: $0.3 \ \rm{m}$
+* Thickness: $0.01 \ \rm{m}$
+
 
 ![untitled](https://github.com/KRproject-tech/MATLAB_ANCF_shell/assets/114337358/079c1aec-ef70-4440-af5c-2affb104febc)
 
