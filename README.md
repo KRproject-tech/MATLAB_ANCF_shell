@@ -74,6 +74,10 @@ __[Step 5] View plotted results__
 
 Results (figures and movie) plotted by [Step 4] are in "./save" directory.
 
+
+## Gallery
+
+
 ### References  
 
 [^1]: A. Shabana, Computational Continuum Mechanics, Chap. 6 (Cambridge University Press, 2008), pp. 231–285.
