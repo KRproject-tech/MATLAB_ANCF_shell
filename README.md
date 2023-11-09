@@ -76,8 +76,11 @@ Results (figures and movie) plotted by [Step 4] are in "./save" directory.
 
 
 ## Gallery
-![reduced_model](https://github.com/KRproject-tech/MATLAB_ANCF_shell/assets/114337358/19748cd5-2599-4f59-bd4f-e2a617b6b95a)
-Deformed shape of the pendulum (Model I) [^2]
+
+Deformed shape of the pendulum by this code.
+
+![reduced_model](https://github.com/KRproject-tech/MATLAB_ANCF_shell/assets/114337358/a0a5933a-8d4f-4bac-b450-f09bd42f2304)
+Deformed shape of the pendulum by the preceding report (Model I) [^2].
 
 ### References  
 
