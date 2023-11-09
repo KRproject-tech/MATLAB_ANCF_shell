@@ -77,6 +77,8 @@ Results (figures and movie) plotted by [Step 4] are in "./save" directory.
 
 ## Gallery
 
+* Young's modulus: $E = 1.0 \times 10^5 \: \rm{Pa}$ 
+
 ![untitled](https://github.com/KRproject-tech/MATLAB_ANCF_shell/assets/114337358/079c1aec-ef70-4440-af5c-2affb104febc)
 
 Deformed shape of the pendulum by this code ($8^2$ elements).
