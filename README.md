@@ -79,11 +79,11 @@ Results (figures and movie) plotted by [Step 4] are in "./save" directory.
 
 ![untitled](https://github.com/KRproject-tech/MATLAB_ANCF_shell/assets/114337358/079c1aec-ef70-4440-af5c-2affb104febc)
 
-Deformed shape of the pendulum by this code.
+Deformed shape of the pendulum by this code ($8^2$ elements).
 
 ![reduced_model](https://github.com/KRproject-tech/MATLAB_ANCF_shell/assets/114337358/8f979d19-6967-448a-b42d-4a88274c69cc)
 
-Deformed shape of the pendulum by the preceding report (Model I) [^2].
+Deformed shape of the pendulum by the preceding report (Model I, $8^2$ elements) [^2].
 
 ### References  
 
