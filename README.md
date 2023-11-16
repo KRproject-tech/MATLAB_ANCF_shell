@@ -77,19 +77,31 @@ Results (figures and movie) plotted by [Step 4] are in "./save" directory.
 
 ## Parameters
 
-Analytical condisions are in "./XXXX/save/param_setting.m"
+Analytical condisions are in "./save/param_setting.m"
 
 ````
-%% Analytical conditions
-End_Time = 20;                                          %% Nondimensional analysis time [-]
-d_t = 1.0e-3;                                           %% Nondimensional step time [-]
-core_num = 6;                                           %% Core number [-]
-speed_check = 0;                                        %% 1:ON, 0:OFF [-]
-alpha_v = 0.5;                                          %% 1:implicit solver，0:explicit solver [-]
+End_Time = 1.0;             %% Analytical time [s]
+d_t = 1e-4;                 %% step time [s]
+core_num = 6;               %% The number of CPUs for computing [-]
+movie_format = 'mpeg';      %% movie format [-]
+% movie_format = 'avi';
+speed_check = 0;            %% 
 
-Ma = 1.0;                                              %% Mass ratio [-]
-Ua = 15.0;                                            	%% Nondimensional flow velocity [-]
-theta_a_vec = 0e-1*[ 0 10];                           	%% Nondimensional material damping [-]
+%% 平板パラメータ
+
+rho_m = 1000;           	%% density [kg/m^3]
+Eelastic = 1e+3;        	%% Young's modulus [Pa]
+nu = 0.3;                   %% Poiison ratio [-]
+
+Length = 100e-3;          	%% Length [m]
+Width = 100e-3;             %% Width [m]
+thick = 10e-3;           	%% Thickness [m]
+Nx = 8;                   	%% The number of x-directional elements [-]
+Ny = 8;                   	%% The number of y-directional elements [-]
+N_gauss = 5;                %% Gauss-Legendre [-]
+
+g = 9.81;                   %% gravity acc. [m/s^2]
+F_in = -rho_m*g*[ 0 0 1].';	%% gravity [N/m^3]
 ````
 
 
