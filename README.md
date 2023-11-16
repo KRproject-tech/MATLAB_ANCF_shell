@@ -75,6 +75,26 @@ __[Step 5] View plotted results__
 Results (figures and movie) plotted by [Step 4] are in "./save" directory.
 
 
+## Parameters
+
+Analytical condisions are in "./XXXX/save/param_setting.m"
+
+````
+%% Analytical conditions
+End_Time = 20;                                          %% Nondimensional analysis time [-]
+d_t = 1.0e-3;                                           %% Nondimensional step time [-]
+core_num = 6;                                           %% Core number [-]
+speed_check = 0;                                        %% 1:ON, 0:OFF [-]
+alpha_v = 0.5;                                          %% 1:implicit solver，0:explicit solver [-]
+
+Ma = 1.0;                                              %% Mass ratio [-]
+Ua = 15.0;                                            	%% Nondimensional flow velocity [-]
+theta_a_vec = 0e-1*[ 0 10];                           	%% Nondimensional material damping [-]
+````
+
+
+
+
 ## Gallery
 
 * Young's modulus: $1.0 \times 10^5 \ \rm{Pa}$
