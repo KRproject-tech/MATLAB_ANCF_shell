@@ -87,8 +87,7 @@ movie_format = 'mpeg';      %% movie format [-]
 % movie_format = 'avi';
 speed_check = 0;            %% 
 
-%% 平板パラメータ
-
+%% Plate
 rho_m = 1000;           	%% density [kg/m^3]
 Eelastic = 1e+3;        	%% Young's modulus [Pa]
 nu = 0.3;                   %% Poiison ratio [-]
@@ -104,7 +103,14 @@ g = 9.81;                   %% gravity acc. [m/s^2]
 F_in = -rho_m*g*[ 0 0 1].';	%% gravity [N/m^3]
 ````
 
+and boundary conditions for nodes on plate;
 
+````
+%% Boundary conditions
+node_r_0 = [ 1];          	%% Node number for fixed node [-]
+node_dxr_0 = [ ];        	%% Node number for fixed x-directional gradient [-]
+node_dyr_0 = [ ];       	%% Node number for fixed y-directional gradient [-]
+````
 
 
 ## Gallery
