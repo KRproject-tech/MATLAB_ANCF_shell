@@ -126,6 +126,7 @@ function plot_behavior_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
+add_pathes
 plot_data
 GUI
 
