@@ -135,6 +135,12 @@ Deformed shape of the pendulum by this code ($12^2$ elements).
 
 Deformed shape of the pendulum by the preceding report (Model I, $8^2$ elements, interpolated) [^2].
 
+
+## Stargazers over time
+[![Stargazers over time](https://starchart.cc/KRproject-tech/MATLAB_ANCF_shell.svg?variant=adaptive)](https://starchart.cc/KRproject-tech/MATLAB_ANCF_shell)
+
+
+
 ### References  
 
 [^1]: A. Shabana, Computational Continuum Mechanics, Chap. 6 (Cambridge University Press, 2008), pp. 231–285.
