@@ -1,0 +1,189 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>parameters</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2017-01-10">
+      <meta name="m-file" content="param_setting"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>parameters</h1>
+         <introduction></introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#1">&#35299;&#26512;&#26465;&#20214;</a></li>
+               <li><a href="#2">&#24179;&#26495;&#12497;&#12521;&#12513;&#12540;&#12479;</a></li>
+               <li><a href="#3">&#24179;&#26495;&#22659;&#30028;&#26465;&#20214;</a></li>
+               <li><a href="#4">&#12473;&#12490;&#12483;&#12503;&#12471;&#12519;&#12483;&#12488;&#26465;&#20214;</a></li>
+               <li><a href="#5">global &#22793;&#25968;</a></li>
+            </ul>
+         </div>
+         <h2>&#35299;&#26512;&#26465;&#20214;<a name="1"></a></h2><pre class="codeinput">End_Time = 1.0;             <span class="comment">%% &#35299;&#26512;&#26178;&#38291; [s]</span>
+d_t = 1e-4;                 <span class="comment">%% &#21051;&#12415;&#26178;&#38291; [s]</span>
+core_num = 6;               <span class="comment">%% CPU&#25968; [-]</span>
+movie_format = <span class="string">'mpeg'</span>;     <span class="comment">%% &#21205;&#30011;&#20445;&#23384;&#24418;&#24335; [-]</span>
+<span class="comment">% movie_format = 'avi';</span>
+speed_check = 0;            <span class="comment">%% &#35336;&#31639;&#36895;&#24230;&#30906;&#35469;&#65306;1:ON, 0:OFF [-]</span>
+</pre><h2>&#24179;&#26495;&#12497;&#12521;&#12513;&#12540;&#12479;<a name="2"></a></h2><pre class="codeinput">rho_m = 1000;           	<span class="comment">%% &#24179;&#26495;&#23494;&#24230; [kg/m^3]</span>
+Eelastic = 1e+4;        	<span class="comment">%% &#12516;&#12531;&#12464;&#29575; [Pa]</span>
+nu = 0.3;                   <span class="comment">%% &#12509;&#12450;&#12477;&#12531;&#27604; [-]</span>
+
+Length = 100e-3;          	<span class="comment">%% &#20840;&#38263; [m]</span>
+Width = 50e-3;             	<span class="comment">%% &#24133; [m]</span>
+thick = 10e-3;           	<span class="comment">%% &#32905;&#21402; [m]</span>
+Nx = 8;                   	<span class="comment">%% x&#26041;&#21521;&#35201;&#32032;&#25968; [-]</span>
+Ny = 4;                   	<span class="comment">%% y&#26041;&#21521;&#35201;&#32032;&#25968; [-]</span>
+N_gauss = 5;                <span class="comment">%% Gauss-Legendre&#27714;&#31309;&#12398;&#27425;&#25968; [-]</span>
+
+g = 9.81;                   <span class="comment">%% &#37325;&#21147;&#21152;&#36895;&#24230; [m/s^2]</span>
+F_in = -rho_m*g*[ 0 0 1].';	<span class="comment">%% &#37325;&#21147;(&#20307;&#31309;&#21147;) [N/m^3]</span>
+
+x_vec = (0:Nx)/Nx*Length;   <span class="comment">%% &#12494;&#12540;&#12489;&#12398;x&#24231;&#27161;(&#35201;&#32032;&#24231;&#27161;&#31995;)&#12398;&#21051;&#12415;&#31684;&#22258; [m]</span>
+y_vec = (0:Ny)/Ny*Width;    <span class="comment">%% &#12494;&#12540;&#12489;&#12398;y&#24231;&#27161;(&#35201;&#32032;&#24231;&#27161;&#31995;)&#12398;&#21051;&#12415;&#31684;&#22258; [m]</span>
+N_element = Nx*Ny;          <span class="comment">%% &#20840;&#35201;&#32032;&#25968; [-]</span>
+
+Dm_mat = Eelastic/(1 - nu^2)*[  1   nu  0;
+                                nu  1   0;
+                                0   0   (1 - nu)/2];
+Dk_mat = thick^3/12*Dm_mat;
+</pre><h2>&#24179;&#26495;&#22659;&#30028;&#26465;&#20214;<a name="3"></a></h2><pre class="codeinput">node_r_0 = [ 1];          	<span class="comment">%% &#22793;&#20301;&#25304;&#26463;&#12434;&#19982;&#12360;&#12427;&#12494;&#12540;&#12489;&#30058;&#21495; [-]</span>
+node_dxr_0 = [ ];        	<span class="comment">%% x&#26041;&#21521;&#21246;&#37197;&#25304;&#26463;&#12434;&#19982;&#12360;&#12427;&#12494;&#12540;&#12489;&#30058;&#21495; [-]</span>
+node_dyr_0 = [ ];       	<span class="comment">%% y&#26041;&#21521;&#21246;&#37197;&#25304;&#26463;&#12434;&#19982;&#12360;&#12427;&#12494;&#12540;&#12489;&#30058;&#21495; [-]</span>
+</pre><h2>&#12473;&#12490;&#12483;&#12503;&#12471;&#12519;&#12483;&#12488;&#26465;&#20214;<a name="4"></a></h2><pre class="codeinput">i_snapshot = 500;               <span class="comment">%% &#12473;&#12490;&#12483;&#12503;&#12471;&#12519;&#12483;&#12488;plot&#21051;&#12415;</span>
+Snapshot_tmax = 0.4;            <span class="comment">%% &#12473;&#12490;&#12483;&#12503;&#12471;&#12519;&#12483;&#12488;plot&#26178;&#38291; [s]</span>
+</pre><h2>global &#22793;&#25968;<a name="5"></a></h2><pre class="codeinput"><span class="keyword">global</span> var_param
+
+var_param.node_r_0 = node_r_0;
+var_param.node_dxr_0 = node_dxr_0;
+var_param.node_dyr_0 = node_dyr_0;
+</pre><p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% parameters
+
+
+%% 解析条件
+End_Time = 1.0;             %% 解析時間 [s]
+d_t = 1e-4;                 %% 刻み時間 [s]
+core_num = 6;               %% CPU数 [-]
+movie_format = 'mpeg';     %% 動画保存形式 [-]
+% movie_format = 'avi';
+speed_check = 0;            %% 計算速度確認：1:ON, 0:OFF [-]
+
+%% 平板パラメータ
+
+rho_m = 1000;           	%% 平板密度 [kg/m^3]
+Eelastic = 1e+4;        	%% ヤング率 [Pa]
+nu = 0.3;                   %% ポアソン比 [-]
+
+Length = 100e-3;          	%% 全長 [m]
+Width = 50e-3;             	%% 幅 [m]
+thick = 10e-3;           	%% 肉厚 [m]
+Nx = 8;                   	%% x方向要素数 [-]
+Ny = 4;                   	%% y方向要素数 [-]
+N_gauss = 5;                %% Gauss-Legendre求積の次数 [-]
+
+g = 9.81;                   %% 重力加速度 [m/s^2]
+F_in = -rho_m*g*[ 0 0 1].';	%% 重力(体積力) [N/m^3]
+
+x_vec = (0:Nx)/Nx*Length;   %% ノードのx座標(要素座標系)の刻み範囲 [m]
+y_vec = (0:Ny)/Ny*Width;    %% ノードのy座標(要素座標系)の刻み範囲 [m]
+N_element = Nx*Ny;          %% 全要素数 [-]
+
+Dm_mat = Eelastic/(1 - nu^2)*[  1   nu  0;
+                                nu  1   0;
+                                0   0   (1 - nu)/2];
+Dk_mat = thick^3/12*Dm_mat;
+
+
+%% 平板境界条件
+
+node_r_0 = [ 1];          	%% 変位拘束を与えるノード番号 [-]
+node_dxr_0 = [ ];        	%% x方向勾配拘束を与えるノード番号 [-]
+node_dyr_0 = [ ];       	%% y方向勾配拘束を与えるノード番号 [-]
+
+
+%% スナップショット条件
+
+i_snapshot = 500;               %% スナップショットplot刻み
+Snapshot_tmax = 0.4;            %% スナップショットplot時間 [s]
+
+
+
+%% global 変数
+global var_param
+
+var_param.node_r_0 = node_r_0;
+var_param.node_dxr_0 = node_dxr_0;
+var_param.node_dyr_0 = node_dyr_0;
+##### SOURCE END #####
+-->
+   </body>
+</html>
