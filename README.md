@@ -44,7 +44,6 @@ __[Step 1] Install the ToolBoxes__
 
 The following ToolBoxes in “./XXXX/cores/ToolBoxes/” are required,
 
-__[XXXX = Plate_FEM_implicit_0]__
 
 __For numerical analysis:__
 
@@ -70,14 +69,6 @@ https://jp.mathworks.com/matlabcentral/fileexchange/15881-mmwrite
    
 https://jp.mathworks.com/matlabcentral/fileexchange/309-mpgwrite?s_tid=srchtitle
 
-
-__[XXXX = Plate_FEM_explicit_3_SURFplot]__
-
-__For plotting results:__
-
-*	__“mpgwrite”__ by  David Foti:
-  
-https://jp.mathworks.com/matlabcentral/fileexchange/309-mpgwrite?s_tid=srchtitle
 
 
 
