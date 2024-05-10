@@ -55,7 +55,8 @@ https://jp.mathworks.com/matlabcentral/fileexchange/33731-meshing-a-plate-using-
 
 https://jp.mathworks.com/matlabcentral/fileexchange/23488-sparse-sub-access
 
-“Vectorized Multi-Dimensional Matrix Multiplication” by Darin Koblick:
+*   __“Vectorized Multi-Dimensional Matrix Multiplication”__ by Darin Koblick:
+
 https://jp.mathworks.com/matlabcentral/fileexchange/47092-vectorized-multi-dimensional-matrix-multiplication?s_tid=prof_contriblnk
 
 __For plotting results:__
@@ -73,7 +74,8 @@ __[XXXX = Plate_FEM_explicit_3_SURFplot]__
 
 __For plotting results:__
 
-*	__“mpgwrite”__ by  David Foti:  
+*	__“mpgwrite”__ by  David Foti:
+  
 https://jp.mathworks.com/matlabcentral/fileexchange/309-mpgwrite?s_tid=srchtitle
 
 
