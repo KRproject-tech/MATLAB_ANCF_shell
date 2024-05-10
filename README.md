@@ -42,8 +42,30 @@ Nonlinear shell dynamics analysis based on FEM shell element with Absolute Nodal
 ## Preparation before analysis
 __[Step 1] Install the ToolBoxes__
 
-The following ToolBoxes in “./cores/ToolBoxes/” are required,
+The following ToolBoxes in “./XXXX/cores/ToolBoxes/” are required,
 
+__[XXXX = Plate_FEM_implicit_0]__
+__For numerical analysis:__
+
+*	__“Meshing a plate using four noded elements”__ by KSSV:
+https://jp.mathworks.com/matlabcentral/fileexchange/33731-meshing-a-plate-using-four-noded-elements
+
+*	__“Sparse sub access” by Bruno Luong:__
+https://jp.mathworks.com/matlabcentral/fileexchange/23488-sparse-sub-access
+
+“Vectorized Multi-Dimensional Matrix Multiplication” by Darin Koblick:
+https://jp.mathworks.com/matlabcentral/fileexchange/47092-vectorized-multi-dimensional-matrix-multiplication?s_tid=prof_contriblnk
+
+__For plotting results:__
+
+*	__“mmwrite” by Micah Richert:__
+https://jp.mathworks.com/matlabcentral/fileexchange/15881-mmwrite
+
+*	__“mpgwrite”__ by  David Foti:  
+https://jp.mathworks.com/matlabcentral/fileexchange/309-mpgwrite?s_tid=srchtitle
+
+
+__[XXXX = Plate_FEM_explicit_3_SURFplot]__
 __For plotting results:__
 
 *	__“mpgwrite”__ by  David Foti:  
