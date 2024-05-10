@@ -25,8 +25,6 @@ Nonlinear shell dynamics analysis based on FEM shell element with Absolute Nodal
 │  │  ├─functions
 │  │  ├─solver
 │  │  └─ToolBoxes
-│  │      ├─mntimes
-│  │      └─Plate_Mesh
 │  └─save
 │      └─fig
 └─Plate_FEM_implicit_0
