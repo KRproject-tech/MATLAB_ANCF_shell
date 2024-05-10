@@ -38,6 +38,10 @@ Nonlinear shell dynamics analysis based on FEM shell element with Absolute Nodal
         └─fig
 </pre>
 
+* __Plate_FEM_implicit_0__ : Implicit solver (Faster and more robust under the thin thickness condition)
+
+* __Plate_FEM_explicit_3_SURFplot__ : Explicit solver (Light computing cost)
+
 
 ## Preparation before analysis
 __[Step 1] Install the ToolBoxes__
