@@ -48,9 +48,11 @@ __[XXXX = Plate_FEM_implicit_0]__
 __For numerical analysis:__
 
 *	__“Meshing a plate using four noded elements”__ by KSSV:
+
 https://jp.mathworks.com/matlabcentral/fileexchange/33731-meshing-a-plate-using-four-noded-elements
 
-*	__“Sparse sub access” by Bruno Luong:__
+*	__“Sparse sub access”__ by Bruno Luong:
+
 https://jp.mathworks.com/matlabcentral/fileexchange/23488-sparse-sub-access
 
 “Vectorized Multi-Dimensional Matrix Multiplication” by Darin Koblick:
@@ -59,13 +61,16 @@ https://jp.mathworks.com/matlabcentral/fileexchange/47092-vectorized-multi-dimen
 __For plotting results:__
 
 *	__“mmwrite” by Micah Richert:__
+  
 https://jp.mathworks.com/matlabcentral/fileexchange/15881-mmwrite
 
-*	__“mpgwrite”__ by  David Foti:  
+*	__“mpgwrite”__ by  David Foti:
+   
 https://jp.mathworks.com/matlabcentral/fileexchange/309-mpgwrite?s_tid=srchtitle
 
 
 __[XXXX = Plate_FEM_explicit_3_SURFplot]__
+
 __For plotting results:__
 
 *	__“mpgwrite”__ by  David Foti:  
