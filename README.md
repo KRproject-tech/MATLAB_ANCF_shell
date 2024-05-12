@@ -63,7 +63,7 @@ https://jp.mathworks.com/matlabcentral/fileexchange/47092-vectorized-multi-dimen
 
 __For plotting results:__
 
-*	__“mmwrite” by Micah Richert:__
+*	__“mmwrite”__ by Micah Richert:
   
 https://jp.mathworks.com/matlabcentral/fileexchange/15881-mmwrite
 
