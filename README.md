@@ -3,7 +3,7 @@
 
 
 # MATLAB_ANCF_shell
-Nonlinear shell dynamics analysis based on FEM shell element with Absolute Nodal Coordinate Formulation (ANCF) [^1]. 
+Nonlinear plate dynamics analysis based on FEM shell element with Absolute Nodal Coordinate Formulation (ANCF) [^1]. 
 
 **Communication**
 
