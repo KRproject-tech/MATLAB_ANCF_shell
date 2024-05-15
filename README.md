@@ -166,6 +166,13 @@ Deformed shape of the pendulum by this code ($12^2$ elements).
 Deformed shape of the pendulum by the preceding report (Model I, $8^2$ elements, interpolated) [^2].
 
 
+
+## Demonstration movie
+
+[![](https://img.youtube.com/vi/FohSLgNJ3vY/0.jpg)](https://www.youtube.com/watch?v=FohSLgNJ3vY)
+
+
+
 ## Stargazers over time
 [![Stargazers over time](https://starchart.cc/KRproject-tech/MATLAB_ANCF_shell.svg?variant=adaptive)](https://starchart.cc/KRproject-tech/MATLAB_ANCF_shell)
 
