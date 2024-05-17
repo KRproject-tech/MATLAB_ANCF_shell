@@ -1,5 +1,6 @@
 
 ![図1](https://github.com/KRproject-tech/MATLAB_ANCF_shell/assets/114337358/e5dbcfc7-b599-4b77-b23e-5d20768e6cac)
+![License](https://img.shields.io/github/license/yuki-koyama/elasty)
 
 
 # MATLAB_ANCF_shell
@@ -176,7 +177,13 @@ Deformed shape of the pendulum by the preceding report (Model I, $8^2$ elements,
 ## Stargazers over time
 [![Stargazers over time](https://starchart.cc/KRproject-tech/MATLAB_ANCF_shell.svg?variant=adaptive)](https://starchart.cc/KRproject-tech/MATLAB_ANCF_shell)
 
+## License
 
+MIT License
+
+## Contributing
+
+Issue reports and pull requests are highly welcomed.
 
 ### References  
 
