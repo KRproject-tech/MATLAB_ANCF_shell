@@ -1,10 +1,13 @@
 
 ![図1](https://github.com/KRproject-tech/MATLAB_ANCF_shell/assets/114337358/e5dbcfc7-b599-4b77-b23e-5d20768e6cac)
-![License](https://img.shields.io/github/license/yuki-koyama/elasty)
 
 
 # MATLAB_ANCF_shell
 Nonlinear plate dynamics analysis based on FEM shell element with Absolute Nodal Coordinate Formulation (ANCF) [^1]. 
+
+
+![License](https://img.shields.io/github/license/yuki-koyama/elasty)
+
 
 **Communication**
 
