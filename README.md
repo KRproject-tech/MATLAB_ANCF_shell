@@ -46,6 +46,60 @@ Nonlinear plate dynamics analysis based on FEM shell element with Absolute Nodal
 * __Plate_FEM_explicit_3_SURFplot__ : Explicit solver (Light computing cost)
 
 
+## Publications
+
+This code is employed as structure solver for the following publication(s):
+
+* Influence of the aspect ratio of the sheet for an electric generator utilizing the rotation of a flapping sheet, Mechanical Engineering Journal, Vol. 8, No. 1 (2021).  
+https://doi.org/10.1299/mej.20-00459
+
+````
+@article{Akio YAMANO202120-00459,
+    title={Influence of the aspect ratio of the sheet for an electric generator utilizing the rotation of a flapping sheet},
+    author={Akio YAMANO and Hiroshi IJIMA and Atsuhiko SHINTANI and Chihiro NAKAGAWA and Tomohiro ITO},
+    journal={Mechanical Engineering Journal},
+    volume={8},
+    number={1},
+    pages={20-00459-20-00459},
+    year={2021},
+    doi={10.1299/mej.20-00459}
+}
+````
+
+* Flow-induced vibration and energy-harvesting performance analysis for parallelized two flutter-mills considering span-wise plate deformation with geometrical nonlinearity and three-dimensional flow, International Journal of Structural Stability and Dynamics, Vol. 22, No. 14, (2022).  
+https://doi.org/10.1142/S0219455422501632
+
+````
+@article{doi:10.1142/S0219455422501632,
+    author = {Yamano, Akio and Chiba, Masakatsu},
+    title = {Flow-Induced Vibration and Energy-Harvesting Performance Analysis for Parallelized Two Flutter-Mills Considering Span-Wise Plate Deformation with Geometrical Nonlinearity and Three-Dimensional Flow},
+    journal = {International Journal of Structural Stability and Dynamics},
+    volume = {22},
+    number = {14},
+    pages = {2250163},
+    year = {2022},
+    doi = {10.1142/S0219455422501632}
+}
+````
+
+* Influence of boundary conditions on a flutter-mill, Journal of Sound and Vibration, Vol. 478, No. 21 (2020).  
+https://doi.org/10.1016/j.jsv.2020.115359
+
+````
+@article{YAMANO2020115359,
+    title = {Influence of boundary conditions on a flutter-mill},
+    journal = {Journal of Sound and Vibration},
+    volume = {478},
+    pages = {115359},
+    year = {2020},
+    doi = {https://doi.org/10.1016/j.jsv.2020.115359},
+    author = {A. Yamano and A. Shintani and T. Ito and C. Nakagawa and H. Ijima}
+}
+````
+
+
+
+
 ## Preparation before analysis
 __[Step 1] Install the ToolBoxes__
 
