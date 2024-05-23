@@ -48,7 +48,7 @@ Nonlinear plate dynamics analysis based on FEM shell element with Absolute Nodal
 
 ## Publications
 
-This code with the implicit solver was employed as a structure solver for the following publication(s):
+This code with the implicit solver (__Plate_FEM_implicit_0__) was employed as a structure solver for the following publication(s):
 
 * Influence of the aspect ratio of the sheet for an electric generator utilizing the rotation of a flapping sheet, Mechanical Engineering Journal, Vol. 8, No. 1 (2021).  
 https://doi.org/10.1299/mej.20-00459
