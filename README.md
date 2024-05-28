@@ -201,6 +201,28 @@ node_dxr_0 = [ ];        	%% Node number for fixed x-directional gradient [-]
 node_dyr_0 = [ ];       	%% Node number for fixed y-directional gradient [-]
 ````
 
+Boundary conditions for two sheets are written as,
+
+* __Clamped at the leading-edge__
+````
+%% Boundary conditions for two sheets
+
+%%[0] sheet
+node_r_0 = [ 1:Ny+1 ];                                                      %% Node number giving the displacement constraint [-]
+node_dxr_0 = [ 1:Ny+1 ];                                                    %% Node number giving x-directional gradient constraint [-]
+node_dyr_0 = [ 1:Ny+1 ];                                                    %% Node number giving y-directional gradient constraint [-]
+````
+
+* __Pinned at the leading-edge__
+````
+%% Boundary conditions for two sheets
+
+%%[0] sheet
+node_r_0 = [ 1:Ny+1 ];                                                      %% Node number giving the displacement constraint [-]
+node_dxr_0 = [ ];                                                           %% Node number giving x-directional gradient constraint [-]
+node_dyr_0 = [ 1:Ny+1 ];                                                    %% Node number giving y-directional gradient constraint [
+````
+where index in vector shows the node index around a plate element to apply boundary conditions.
 
 ## Gallery
 
