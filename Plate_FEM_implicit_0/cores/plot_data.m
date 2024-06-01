@@ -59,8 +59,11 @@ i_ax = i_ax + 1;
 
 %% [1] Plotting the nodes
 
+
+video = mmread('./load/kishida.mp4', 1:1000);
+
 h_fig(2) = figure(2);
-set( h_fig(2), 'Position', [700 100 700 500], 'render', 'zbuffer')
+figure4movie( h_fig(2), [700 100 900 800])
 h_ax(i_ax) = axes( 'Parent', h_fig(2), 'FontSize', 15);
 
 
@@ -78,17 +81,17 @@ X = reshape( r_vec(1:3:end).', Ny+1, []).';
 Y = reshape( r_vec(2:3:end).', Ny+1, []).';
 Z = reshape( r_vec(3:3:end).', Ny+1, []).';                        
 
-h_plot(1) = surf( X, Y, Z, 'Parent', h_ax(i_ax), 'FaceColor', 'r');
+h_plot(1) = surf( X, Y, Z, 'Parent', h_ax(i_ax), 'FaceColor', 'texturemap', 'EdgeColor', 'none');
 % h_plot(1) = patch( 0, 0, 0, 'r', 'Parent', h_ax(i_ax));
 
 % light
 % lighting gouraud 
-view( h_ax(i_ax), [1 2 1])
+view( h_ax(i_ax), [-4 -1 -1])
 axis( h_ax(i_ax), 'equal')
 grid( h_ax(i_ax), 'on')
-xlim( h_ax(i_ax), [-Length 2*Length])
-ylim( h_ax(i_ax), [-Width 2*Width])
-zlim( h_ax(i_ax), [-Length 0])
+xlim( h_ax(i_ax), [-Length/2 Length*1.5])
+ylim( h_ax(i_ax), [-Width/2 Width*1.5])
+zlim( h_ax(i_ax), [-2*Length Length/2])
 xlabel( h_ax(i_ax), '{\itX} position [m]', 'FontName', 'Times New Roman', 'FontSize', 15)
 ylabel( h_ax(i_ax), '{\itY} position [m]', 'FontName', 'Times New Roman', 'FontSize', 15)
 zlabel( h_ax(i_ax), '{\itZ} position [m]', 'FontName', 'Times New Roman', 'FontSize', 15)
@@ -104,12 +107,11 @@ h_ax(i_ax) = axes( 'Parent', h_fig(3), 'FontSize', 15);
 
 % light
 % lighting gouraud 
-view( h_ax(i_ax), [1 2 1])
 axis( h_ax(i_ax), 'equal')
 grid( h_ax(i_ax), 'on')
 xlim( h_ax(i_ax), [-1.5*Length 2*Length])
 ylim( h_ax(i_ax), [-1.5*Width 2*Width])
-zlim( h_ax(i_ax), [-1.5*Length 0])
+zlim( h_ax(i_ax), [-2*Length Length])
 xlabel( h_ax(i_ax), '{\itX} position [m]', 'FontName', 'Times New Roman', 'FontSize', 15)
 ylabel( h_ax(i_ax), '{\itY} position [m]', 'FontName', 'Times New Roman', 'FontSize', 15)
 zlabel( h_ax(i_ax), '{\itZ} position [m]', 'FontName', 'Times New Roman', 'FontSize', 15)
@@ -130,6 +132,11 @@ for time = time_m
     if mod( i_time, 5) == 0
         
         disp( [ 'Time = ', num2str( time, '%0.4f'), ' [s]'])
+        
+        if i_time <= length( video.frames)
+            img = video.frames(i_time).cdata;
+        end
+        
 
         %%[1-0] ノード変位データ抽出
         r_vec = double( reshape( h_X_vec(idx_r,i_time), 3, []));
@@ -149,7 +156,7 @@ for time = time_m
         
 
         %%[1-2] plot更新
-        set( h_plot(1), 'XData', X, 'YData', Y, 'ZData', Z);
+        set( h_plot(1), 'XData', X, 'YData', Y, 'ZData', Z, 'CData', img);
         set( h_txt(1), 'String', [ 'Time = ', num2str( time, '%0.3f'), ' [s]']);
         
         %%[1-3] 挙動のスナップショット
@@ -157,6 +164,7 @@ for time = time_m
             
 %             patch( X, Y, Z, 'r', 'Parent', h_ax(3), 'FaceAlpha', 0.5);
             surf( X, Y, Z, 'Parent', h_ax(3));
+            view( h_ax(3), [1 -2 1])
             hold( h_ax(3), 'on')
             axis( h_ax(3), 'equal')
 
