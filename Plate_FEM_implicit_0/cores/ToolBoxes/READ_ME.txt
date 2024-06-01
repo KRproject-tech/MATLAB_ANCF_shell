@@ -18,6 +18,9 @@ For plotting results:
 “mmwrite” by Micah Richert:
 https://jp.mathworks.com/matlabcentral/fileexchange/15881-mmwrite
 
+“mmread” by Micah Richert:
+https://jp.mathworks.com/matlabcentral/fileexchange/8028-mmread
+
 
 
 [Step 1.2] Add path to installed ToolBoxes
