@@ -131,7 +131,7 @@ https://jp.mathworks.com/matlabcentral/fileexchange/15881-mmwrite
 https://jp.mathworks.com/matlabcentral/fileexchange/309-mpgwrite?s_tid=srchtitle
 
 *	__“mmread”__ by Micah Richert:
-*	
+
 https://jp.mathworks.com/matlabcentral/fileexchange/8028-mmread
 
 
