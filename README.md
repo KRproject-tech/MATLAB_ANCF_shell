@@ -46,7 +46,6 @@ Nonlinear plate dynamics analysis based on FEM shell element with Absolute Nodal
 * __Plate_FEM_explicit_3_SURFplot__ : Explicit solver (Light computing cost)
 
 __Comparisons between Semi-implicit solver vs ODE113 (MATLAB explicit solver)__
-
 [![](https://img.youtube.com/vi/R_YgaX05x_U/0.jpg)](https://youtube.com/shorts/R_YgaX05x_U?si=56Yt0fEM15mr7k4f)
 
 
