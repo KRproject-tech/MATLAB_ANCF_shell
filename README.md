@@ -251,6 +251,9 @@ Deformed shape of the pendulum by this code ($12^2$ elements).
 Deformed shape of the pendulum by the preceding report (Model I, $8^2$ elements, interpolated) [^2].
 
 
+![Energy](https://github.com/KRproject-tech/MATLAB_ANCF_shell/assets/114337358/cd48ac06-6227-4abd-995d-d78d7a8085dd)
+
+Time series of energy of the falling plate.
 
 ## Demonstration movie
 
