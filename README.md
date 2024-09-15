@@ -6,8 +6,9 @@
 Nonlinear plate dynamics analysis based on FEM shell element with Absolute Nodal Coordinate Formulation (ANCF) [^1]. 
 (This code is validated with MATLAB R2007b or later versions)
 
-
 ![License](https://img.shields.io/github/license/yuki-koyama/elasty)
+<img src="https://img.shields.io/badge/Matlab-%3E%3D%202007b%20-blue.svg" alt="Matlab">
+<img src="https://img.shields.io/badge/Windows-Pass-brightgreen.svg" alt="Windows">
 
 
 **Communication**
