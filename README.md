@@ -199,7 +199,7 @@ g = 9.81;                   %% gravity acc. [m/s^2]
 F_in = -rho_m*g*[ 0 0 1].';	%% gravity [N/m^3]
 ````
 
-and boundary conditions for nodes on plate;
+and boundary conditions for nodes on the plate;
 
 ````
 %% Boundary conditions
@@ -209,6 +209,14 @@ node_dyr_0 = [ ];       	%% Node number for fixed y-directional gradient [-]
 ````
 
 Then, boundary conditions for a plate are written as,
+
+* __Pinned at the corner of the plate__
+ ````
+%% Boundary conditions
+node_r_0 = [ 1];          	%% Node number for fixed node [-]
+node_dxr_0 = [ ];        	%% Node number for fixed x-directional gradient [-]
+node_dyr_0 = [ ];       	%% Node number for fixed y-directional gradient [-]
+```` 
 
 * __Clamped at the leading-edge__
 ````
