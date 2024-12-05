@@ -25,6 +25,9 @@ Nonlinear plate dynamics analysis based on FEM shell element with Absolute Nodal
 
 
 ## Directory    
+
+<details><summary><b>Show Directories</b></summary>
+
 <pre>
 ├─Plate_FEM_explicit_3_SURFplot
 │  ├─cores
@@ -42,6 +45,8 @@ Nonlinear plate dynamics analysis based on FEM shell element with Absolute Nodal
         └─fig
 </pre>
 
+</details>
+
 * __Plate_FEM_implicit_0__ : Implicit solver (Faster and more robust under the thin thickness condition)
 
 * __Plate_FEM_explicit_3_SURFplot__ : Explicit solver (Light computing cost)
@@ -54,6 +59,9 @@ __Comparisons between Semi-implicit solver vs ODE113 (MATLAB explicit solver)__
 ## Publications
 
 This code with the implicit solver (__Plate_FEM_implicit_0__) was employed as a structure solver for the following publication(s):
+
+<details><summary><b>Show Publications</b></summary>
+
 
 * Influence of the aspect ratio of the sheet for an electric generator utilizing the rotation of a flapping sheet, Mechanical Engineering Journal, Vol. 8, No. 1 (2021).  
 https://doi.org/10.1299/mej.20-00459
@@ -103,9 +111,12 @@ https://doi.org/10.1016/j.jsv.2020.115359
 ````
 
 
-
+</details>
 
 ## Preparation before analysis
+
+<details><summary><b>Show instructions</b></summary>
+
 __[Step 1] Install the ToolBoxes__
 
 The following ToolBoxes in “./XXXX/cores/ToolBoxes/” are required,
@@ -170,8 +181,13 @@ __[Step 5] View plotted results__
 
 Results (figures and movie) plotted by [Step 4] are in "./save" directory.
 
+</details>
+
 
 ## Parameters
+
+<details><summary><b>Show instructions</b></summary>
+
 
 Analytical condisions are in "./save/param_setting.m"
 
@@ -235,6 +251,7 @@ node_dyr_0 = [ 1:Ny+1 ];   %% Node number giving y-directional gradient constrai
 ````
 where index in vector shows the node index around a plate element to apply boundary conditions.
 
+</details>
 
 
 ## Gallery
