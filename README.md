@@ -191,7 +191,7 @@ Results (figures and movie) plotted by [Step 4] are in "./save" directory.
 
 Analytical condisions are in "./save/param_setting.m"
 
-````
+```matlab
 End_Time = 1.0;             %% Analytical time [s]
 d_t = 1e-4;                 %% step time [s]
 core_num = 6;               %% The number of CPUs for computing [-]
@@ -213,42 +213,42 @@ N_gauss = 5;                %% Gauss-Legendre [-]
 
 g = 9.81;                   %% gravity acc. [m/s^2]
 F_in = -rho_m*g*[ 0 0 1].';	%% gravity [N/m^3]
-````
+```
 
 and boundary conditions for nodes on the plate;
 
-````
+```matlab
 %% Boundary conditions
 node_r_0 = [ 1];          	%% Node number for fixed node [-]
 node_dxr_0 = [ ];        	%% Node number for fixed x-directional gradient [-]
 node_dyr_0 = [ ];       	%% Node number for fixed y-directional gradient [-]
-````
+```
 
 Then, boundary conditions for a plate are written as,
 
 * __Pinned at the corner of the plate__
- ````
+ ```matlab
 %% Boundary conditions
 node_r_0 = [ 1];          	%% Node number for fixed node [-]
 node_dxr_0 = [ ];        	%% Node number for fixed x-directional gradient [-]
 node_dyr_0 = [ ];       	%% Node number for fixed y-directional gradient [-]
-```` 
+```
 
 * __Clamped at the leading-edge__
-````
+```matlab
 %% Boundary conditions
 node_r_0 = [ 1:Ny+1 ];       %% Node number giving the displacement constraint [-]
 node_dxr_0 = [ 1:Ny+1 ];     %% Node number giving x-directional gradient constraint [-]
 node_dyr_0 = [ 1:Ny+1 ];     %% Node number giving y-directional gradient constraint [-]
-````
+```
 
 * __Pinned at the leading-edge__
-````
+```matlab
 %% Boundary conditions
 node_r_0 = [ 1:Ny+1 ];     %% Node number giving the displacement constraint [-]
 node_dxr_0 = [ ];          %% Node number giving x-directional gradient constraint [-]
 node_dyr_0 = [ 1:Ny+1 ];   %% Node number giving y-directional gradient constraint [
-````
+```
 where index in vector shows the node index around a plate element to apply boundary conditions.
 
 </details>
